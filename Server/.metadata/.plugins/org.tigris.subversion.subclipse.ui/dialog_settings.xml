@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="" key="DirectorySelectionPage.lastParent_svn://222.199.230.228/telegram/code/server"/>
+	<item value="svn://222.199.230.228/telegram/code/server" key="RepositorySelectionPage.lastRepository"/>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="svn://222.199.230.228/telegram/code/server/"/>
+			<item value=""/>
+		</list>
+	</section>
+</section>

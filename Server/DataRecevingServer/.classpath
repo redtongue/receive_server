@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/hibernate-c3p0-4.2.4.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/hibernate-commons-annotations-4.0.2.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/hibernate-core-4.2.4.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/hibernate-ehcache-4.2.4.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/hibernate-entitymanager-4.2.4.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/jboss-logging-3.1.0.GA.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/mysql-connector-java-5.1.40-bin.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/mchange-commons-java-0.2.3.4.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/c3p0-0.9.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/ehcache-core-2.4.3.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/javassist-3.15.0-GA.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.2.1.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.2.1-sources.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.2.4.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.2.4-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.2.4-sources.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.3.1.jar"/>
+	<classpathentry kind="lib" path="D:/learn/telegram/Server/jar/gson-2.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

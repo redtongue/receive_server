@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="model">
+
+    <class name="Cell" table="CELL">
+
+		<!-- 设置并发访问策略 -->
+		<cache usage="read-only"/>
+
+        <id name="id" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="type" type="int"/>
+        <property name="messageText" type="java.lang.String"/>
+        <property name="fcontent" type="binary"/>
+        <property name="savePath" type="java.lang.String"/>
+        <property name="sendTime" type="timestamp"/>
+        <property name="sendName" type="java.lang.String"/>
+        <property name="sendPhone" type="java.lang.String"/>
+        <property name="receiveName" type="java.lang.String"/>
+        <property name="receivePhone" type="java.lang.String"/>
+
+    </class>
+
+</hibernate-mapping>
