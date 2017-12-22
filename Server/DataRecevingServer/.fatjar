@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Fri Dec 22 11:25:55 CST 2017
+onejar.license.required=false
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=true
+jarname=C\:\\Users\\red_tongue\\Desktop\\DataRecevingServer.jar
+manifest.mergeall=true
+manifest.mainclass=main.Server
+manifest.file=<createnew>
+jarname.isextern=true
+onejar.expand=
+excludes=
+includes=

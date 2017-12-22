@@ -1,0 +1,39 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.username">root</property>
+		<property name="connection.password">123456</property>
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/server_schema?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property>
+		<property name="format_sql">true</property>
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- 配置二级缓存的实现CacheProvider -->
+		<!-- hibernate3.x中使用 -->
+		<!-- <property name="cache.provider_class">org.hibernate.cache.EhCacheProvider</property> -->
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<!-- 开始二级缓存 -->
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<!-- 开启查询缓存功能（针对Query和Criteria的情况） -->
+		<property name="hibernate.cache.use_query_cache">true</property>
+		
+		<!-- 当配置c3p0连接池后会自动关闭hibernate内置的默认连接池 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<!-- 获得连接超时时间 -->
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<!-- 创建PrepardStatement的的最大数量 -->
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<!-- 每隔指定时间检查连接池中的空闲连接 -->
+		<property name="hibernate.c3p0.idle_test_period">150</property>
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<property name="hibernate.c3p0.validate">true</property>
+		
+		<mapping resource="model/Cell.hbm.xml"></mapping>
+	</session-factory>
+</hibernate-configuration>
