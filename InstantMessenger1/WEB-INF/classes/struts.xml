@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+	</package>
+
+	<package name="users" namespace="/users" extends="default">
+		<interceptors>
+			<interceptor name="authority" class="interceptor.AuthorityInterceptor"></interceptor>
+		</interceptors>
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="login_success">/users/Users_login_success.jsp</result>
+			<result name="login_failure">/users/Users_login.jsp</result>
+			<result name="logout_success">/users/Users_login.jsp</result>
+			<result name="input">/users/Users_login.jsp</result>
+			<result name="query_success">/users/Users_query_success.jsp</result>
+			<result name="delete_success" type="chain">Users_query</result>
+			<result name="add_success">/users/Users_add_success.jsp</result>
+			<result name="add_failure">/users/Users_add.jsp</result>
+			<result name="modify_success">/users/Users_modify.jsp</result>
+			<result name="save_success">/users/Users_modify_success.jsp</result>
+			<result name="save_failure">/users/Users_modify.jsp</result>
+			<!-- <result name="open_failure">/users/Users_query_success.jsp</result> -->
+			<result name="open_failure">/users/Users_open_failure.jsp</result>
+			<result name="selfshow_success">/users/Users_selfmodify.jsp</result>
+			<result name="selfsave_success">/users/Users_selfmodify_success.jsp</result>
+			<result name="selfsave_failure">/users/Users_selfmodify.jsp</result>
+
+			<!-- /users/Users_login_success.jsp -->
+			
+			<interceptor-ref name="authority">
+				<param name="includeMethods">query,delete,add</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="usersexceldownload" class="action.UsersExcelDownloadAction">
+			<param name="inputPath">/content/test.jpg</param>
+			<result name="usersexceldownload_success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="users.xls"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+			<result name="open_failure">/users/Users_open_failure.jsp</result>
+			<interceptor-ref name="authority">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+	</package>
+
+	<package name="content" namespace="/content" extends="default">
+	
+		<interceptors>
+			<interceptor name="authority" class="interceptor.AuthorityInterceptor"></interceptor>
+		</interceptors>
+		
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="query_success">/content/Content_query_success.jsp</result>
+			<result name="queryjson_success">/content/Content_lookthrough_success.jsp</result>
+			<result name="delete_success" type="chain">Content_query</result>
+			<result name="open_failure">/users/Users_open_failure.jsp</result>
+			<!-- <result name="download_success">/content/Content_query_success.jsp</result> -->
+			
+			<interceptor-ref name="authority">
+				<param name="includeMethods">delete</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		
+		<action name="download" class="action.FileDownloadAction">
+			<param name="inputPath">/content/test.jpg</param>
+			<result name="download_success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+		</action>
+		
+		<action name="contentexceldownload" class="action.ContentExcelDownloadAction">
+			<param name="inputPath">/content/test.jpg</param>
+			<result name="contentexceldownload_success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="content.xls"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+			<result name="open_failure">/users/Users_open_failure.jsp</result>
+			
+			<interceptor-ref name="authority">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+	</package>
+	
+	<package name="jsonone" extends="json-default" namespace="/jsonone">
+	    <action name="usejson" class="action.JsonAction" method="usejsonone">
+	        <result name="success" type="json">
+	            <param name="root">dataMap</param>
+	            <!-- <param name="excludeNullProperties">true</param>
+	            <param name="includeProperties">dataMap.*</param>
+	            <param name="excludeProperties"></param> -->
+	        </result>
+	    </action>
+	</package>
+	
+	<package name="backup" namespace="/backup" extends="default">
+	
+		<interceptors>
+			<interceptor name="authority" class="interceptor.AuthorityInterceptor"></interceptor>
+		</interceptors>
+	
+		<action name="backupmysql" class="action.BackupMysqlAction">
+			
+			<param name="inputPath">/content/test.jpg</param>
+			<result name="backupmysql_success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="instantmessenger.sql"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+			<!-- <result name="backupmysql_success">/backup/Backup_mysql_success.jsp</result> -->
+			<result name="open_failure">/users/Users_open_failure.jsp</result>
+			
+			<interceptor-ref name="authority">
+				<param name="includeMethods">execute</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+		</action>
+	</package>
+	
+	<package name="location" namespace="/location" extends="default">
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="location_generate_success" type="chain">Location_generate</result>
+			<result name="location_success" >/analysis/Location_success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="config" namespace="/config" extends="default">
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="count_success">/analysis/Config_success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="announcement" namespace="/announcement" extends="default">
+	
+		<interceptors>
+			<interceptor name="authority" class="interceptor.AuthorityInterceptor"></interceptor>
+		</interceptors>
+		
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<!-- <result name="show_successs" >/users/Users_login_success.jsp</result> -->
+			<result name="modify_success">/announcement/Announcement_modify.jsp</result>
+			<!-- <result name="save_success" type="chain">/users/Users_login.action</result>
+			<result name="login_success">/announcement/Announcement_modify_success.jsp</result> -->
+			<result name="save_success">/announcement/Announcement_modify_success.jsp</result>
+			<result name="open_failure">/users/Users_open_failure.jsp</result>
+			
+			<interceptor-ref name="authority">
+				<param name="includeMethods">modify,save</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			
+		</action>
+	</package>
+	
+	<package name="confile" namespace="/confile" extends="default">
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="confile_generate_success" type="chain">Confile_show</result>
+			<result name="queryjson_success">/analysis/Confile_success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="consumer" namespace="/consumer" extends="default">
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="consumer_generate_success" type="chain">Consumer_statistics</result>
+			<result name="consumer_statistics_success" type="chain">Consumer_analysis</result>
+			<result name="consumer_analysis_success">/analysis/Consumer_success.jsp</result>
+		</action>
+	</package>
+	
+	<package name="sensitiveword" namespace="/sensitiveword" extends="default">
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="sensitiveword_generate_success">/analysis/Sensitiveword_success.jsp</result>
+		</action>
+		
+		<action name="sensitivewordjsondownload" class="action.SensitivewordJsonDownloadAction">
+			<param name="inputPath">/content/test.jpg</param>
+			<result name="sensitivewordjsondownload_success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="sensitivelist.xls"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+			
+		</action>
+		
+	</package>
+	
+	<package name="log" namespace="/log" extends="default">
+	
+		<action name="*_*" class="action.{1}Action" method="{2}">
+			<result name="queryjson_success">/log/Log_success.jsp</result>
+		</action>
+		
+		<action name="logexceldownload" class="action.LogExcelDownloadAction">
+			<param name="inputPath">/content/test.jpg</param>
+			<result name="logexceldownload_success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">attachment;filename="log.xls"</param>
+				<param name="bufferSize">8192</param>
+			</result>
+		</action>
+		
+	</package>
+	
+</struts>

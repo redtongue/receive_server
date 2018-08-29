@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="entity.Config" table="CONFIG">
+
+        <id name="cid" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="supmanagernum" type="int"/>
+        <property name="infemanagernum" type="int"/>
+        <property name="messagenum" type="int"/>
+        <property name="messageusernum" type="int"/>
+        <property name="citynum" type="int"/>
+        <property name="connectionnum" type="int"/>
+        <property name="textnum" type="int"/>
+        <property name="audionum" type="int"/>
+        <property name="picnum" type="int"/>
+        <property name="videonum" type="int"/>
+    </class>
+
+</hibernate-mapping>

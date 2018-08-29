@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+    <class name="entity.Confile" table="CONFILE">
+
+        <id name="fid" type="int">
+            <generator class="native"/>
+        </id>
+        <property name="sender" type="java.lang.String"/>
+        <property name="receiver" type="java.lang.String"/>
+        <property name="sendtime" type="timestamp"/>
+        <property name="savepath" type="java.lang.String"/>
+        <property name="type" type="java.lang.String"/>
+        <property name="size" type="java.lang.String"/>
+        <property name="flag" type="java.lang.Integer"/>
+    </class>
+
+</hibernate-mapping>

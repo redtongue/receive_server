@@ -1,0 +1,77 @@
+<ehcache>
+
+    <diskStore path="d:/temp"/>
+
+    <defaultCache
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+   
+    <cache name="entity.Users"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Content"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Location"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Announcement"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Config"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Confile"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Consumer"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+    
+    <cache name="entity.Log"
+        maxElementsInMemory="10000"
+        eternal="false"
+        timeToIdleSeconds="10"
+        timeToLiveSeconds="120"
+        overflowToDisk="true"
+        />
+
+</ehcache>
